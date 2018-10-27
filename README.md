@@ -1,0 +1,2 @@
+# vimperatorscripts
+configuración, plugines
