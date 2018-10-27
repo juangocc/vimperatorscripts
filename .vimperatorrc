@@ -1,0 +1,7 @@
+" This is a configuration file for Vimperator. 
+
+" No menus
+set gui=none
+
+" Don't beep
+" set noerrorbells
