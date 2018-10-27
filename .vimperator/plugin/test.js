@@ -1,5 +1,3 @@
-var carro="casa";
-echo "casa";
 
 function addCss(cssCode) {
 var styleElement = content.document.createElement("style");
@@ -7,37 +5,35 @@ var styleElement = content.document.createElement("style");
   if (styleElement.styleSheet) {
     styleElement.styleSheet.cssText = cssCode;
   } else {
-    styleElement.appendChild(document.createTextNode(cssCode));
+    styleElement.appendChild(content.document.createTextNode(cssCode));
   }
-  document.getElementsByTagName("head")[0].appendChild(styleElement);
+  content.document.getElementsByTagName("head")[0].appendChild(styleElement);
 }
 
-cssCodecustom = "
-
-stream-item-header 
-{
-}
-js-tweet-text-container
-{
-}
-AdaptiveMediaOuterContainer
-stream-item-footer
-
-
-
-
-
-";
+cssCodecustom = ""+
+".stream-item-header "+
+"{"+
+"}"+
+".js-tweet-text-container"+
+"{"+
+"}"+
+".AdaptiveMediaOuterContainer"+
+"{"+
+"display:none;"+
+"}"+
+".stream-item-footer"+
+"{"+
+"}"+
+"";
 
 addCss(cssCodecustom);
-
-
-// var c = content.document.getElementById("myDIV").childNodes;
-// c[0].style.backgroundColor = "yellow"; 
 
 function revisarPost(){
 var streamitems = content.document.querySelectorAll("#stream-items-id:first-child>li"); 
 var total = streamitems.length;
+if(total>20){
+total=20;
+}
 var i;
 for (i=0; i<total; i++){
 streamitems[i].remove();
@@ -51,6 +47,7 @@ var milliseconds = 15000;
 function setDelay(j){
 setTimeout(function(){
 revisarPost();
+content.window.scrollTo(0,0);
 
 if(j>1){
 setDelay(j-1);
@@ -61,7 +58,7 @@ content.console.log("Ciclo : "+j);
 content.window.scrollTo(0,content.document.body.scrollHeight);
 }
 
-setDelay(3);
+//setDelay(3);
 
-//setInterval(function, milliseconds);
+
 
